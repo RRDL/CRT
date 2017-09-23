@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CRT</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="firststepeng">Evalutate safety conditions. and make sure that there is no supplementary hazards(trafic,fire,electric shock hazard..) Do not enter the accident site if there\'s a risk to you. guarantee the safety of the victims and other persons who are present. if the situation is too dangerous for you to intervene, Alert emergency services. create a safe perimeter around the accident site and wait safely for EMS arrival.</string>
+    <string name="firststepar">قم بتقدير ضروف السلامة. تاكد من عدم وجود مخاطر ثانوية (حركة سير , حريق , خطر صعقة كهرباىية..) لا تدخل الى موقع الحادث الا في حال عدم وجود خطر على سلامتك. تاكد من سلامة المصابين و الاشخاص الحاضرين بالموقع. في حال تعذر امكانية التدخل, قم باعلام خدمات الطوارى. قم بتطويق الموقع بمحيط سلامة و انتظر وصول خدمات الطوارى.</string>
+    <string name="scndstpen">Present yourself and explain to the victim what are you intending to do. verify that the victim is conscious and breathing. notice any alteration in consciousness or breathing.These informations would be tranfered to the EMS.</string>
+    <string name="scndstpar">قم بتقديم نفسك للمصاب و فسر له ما تنوي القيام به للمساعدة تاكد من ان المصاب في حالة وعي و تنفس طبيعيين. اي خلل في هاته الحالتين تعلم به خدمات الطوارى.</string>
+    <string name="Thrdstepen">If you need help, call for the emergency services. EMS phone numbers are available on the screen. You will have to share these informations with the EMS. -Your phone number or the phone you\'re calling from -If necessary , your name -The problem\'s nature(accident , illness) -Risk factors(fire,explosions,..) -The precise location of the event -Number of persons hurt. -State of each victim. -Measures taken at the site.</string>
+    <string name="thrdstpAR">في حال احتياجك الى المساعدة قم بالاتصال بخدمات الطوارى(الارقام موجودة على القاىمة) يجب عليك الاجابة على الاسىلة التالية: -رقم هاتفك او الهاتف الذي يتم منه الاتصال, -في الضرورة , اسمك. -المخاطر الحاضرة في الموقع. -الوصف الدقيق للموقع الجغرافي لمكان الحدث. -حالة كل مصاب. -الاجراءات المتخذة في موقع الحدث.</string>
+    <string name="frthstpEN">Deliver first aid in a calm and well paced manner.</string>
+    <string name="frthstpAR">قم بتقديم الاسعافات الاولية بطريقة هادىة و رصينة.</string>
+</resources>

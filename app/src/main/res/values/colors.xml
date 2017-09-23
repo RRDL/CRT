@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f92a2a</color>
+    <color name="colorPrimaryDark">#db0000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="accent_material_light">#007d96</color>
+    <color name="before">#ff4000</color>
+    <color name="choking">#fb3811</color>
+    <color name="bleeding">#f21b07</color>
+</resources>
