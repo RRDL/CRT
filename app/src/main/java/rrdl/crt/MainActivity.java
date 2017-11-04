@@ -1,21 +1,26 @@
 package rrdl.crt;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener{
 
-    private TextView mTextMessage;
     Button btn1;
+    Locale mylocale;
+    private TextView mTextMessage;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -24,16 +29,14 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
             FragmentManager fm=getSupportFragmentManager();
 
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.home:
                     fm.beginTransaction().replace(R.id.content,new BlankFragment()).commit();
 
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.chat:
                     fm.beginTransaction().replace(R.id.content,new Donation()).commit();
-                    Intent i2=new Intent(getApplicationContext(),asphyxiation.class);
-                    startActivity(i2);
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.map:
                     fm.beginTransaction().replace(R.id.content,new Notification()).commit();
                     return true;
 
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //setLanguage("ar");
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         FragmentManager fm=getSupportFragmentManager();
@@ -58,5 +61,17 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+    //change language
+    private void setLanguage(String language){
+        mylocale=new Locale(language);
+        Resources resources=getResources();
+        DisplayMetrics dm=resources.getDisplayMetrics();
+        Configuration conf= resources.getConfiguration();
+        conf.locale=mylocale;
+        resources.updateConfiguration(conf,dm);
+        Intent refreshIntent=new Intent(MainActivity.this,MainActivity.class);
+        finish();
+        startActivity(refreshIntent);
     }
 }

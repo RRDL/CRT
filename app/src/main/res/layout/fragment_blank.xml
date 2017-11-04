@@ -18,19 +18,10 @@
             android:layout_weight="0.08" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/fp0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="First Aid"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView35"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="الاسعافات الاولية"
+            android:text="@string/fp0"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
@@ -41,39 +32,39 @@
             android:layout_weight="0.08" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/fp1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.08"
             android:backgroundTint="@color/before"
-            android:text="Before acting قبل التدخل"
+            android:text="@string/fp1"
             android:textColor="@android:color/background_light" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/fp2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.08"
             android:backgroundTint="@color/choking"
-            android:text="Choking الاختناق"
+            android:text="@string/fp2"
             android:textColor="@android:color/background_light" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/fp3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.08"
             android:backgroundTint="@color/bleeding"
-            android:text="Bleeding النزيف"
+            android:text="@string/fp3"
             android:textColor="@android:color/background_light" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/fp4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.08"
             android:backgroundTint="@color/colorPrimaryDark"
-            android:text="Unconsciousness الاغماء"
+            android:text="@string/fp4"
             android:textColor="@android:color/background_light" />
 
         <Space
@@ -81,13 +72,5 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.08" />
 
-        <TextView
-            android:id="@+id/textView99"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.08"
-            android:text="CRT - RRDL ® 2017"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary" />
     </LinearLayout>
 </FrameLayout>

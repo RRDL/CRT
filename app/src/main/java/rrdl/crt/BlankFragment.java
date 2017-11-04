@@ -8,11 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-
-import java.util.List;
 
 
 /**
@@ -29,13 +26,13 @@ public class BlankFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public ListView list;
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     Button btn1;
     Button btn2;
     Button btn3;
     Button btn4;
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
     private OnFragmentInteractionListener mListener;
 
 
@@ -75,7 +72,7 @@ public class BlankFragment extends Fragment {
                              Bundle savedInstanceState) {
        View view =inflater.inflate(R.layout.fragment_blank, container, false);
         // Inflate the layout for this fragment
-        btn1=(Button)view.findViewById(R.id.button);
+        btn1=(Button)view.findViewById(R.id.fp1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +82,7 @@ public class BlankFragment extends Fragment {
 
             }
         });
-        btn2=(Button)view.findViewById(R.id.button2);
+        btn2=(Button)view.findViewById(R.id.fp2);
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +92,7 @@ public class BlankFragment extends Fragment {
 
             }
         });
-        btn3=(Button)view.findViewById(R.id.button3);
+        btn3=(Button)view.findViewById(R.id.fp3);
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +101,7 @@ public class BlankFragment extends Fragment {
                 startActivity(i);
 
             }
-        });   btn4=(Button)view.findViewById(R.id.button4);
+        });   btn4=(Button)view.findViewById(R.id.fp4);
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

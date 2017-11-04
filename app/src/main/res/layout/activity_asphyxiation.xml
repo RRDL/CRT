@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,42 +18,23 @@
                 android:layout_height="24dp" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/ch0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Asphyxiation"
+                android:text="@string/ch0"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_red_light"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="الاختناق"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
-
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/ch1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Symptoms"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="الاعراض"
+                android:text="@string/ch1"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@android:color/holo_green_dark"
@@ -64,24 +45,10 @@
                 android:layout_height="24dp" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/ch2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-Victim can't respond vocally but is conscious."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="-Victim can't speak, breathe nor cough."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="-الضحية لا يستطيع التحدث , التنفس او السعال."
+                android:text="@string/ch2"
                 android:textAlignment="center" />
 
             <Space
@@ -89,19 +56,10 @@
                 android:layout_height="24dp" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/ch3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Intervention:"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="التدخل"
+                android:text="@string/ch3"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="18sp" />
@@ -122,35 +80,10 @@
                 android:layout_height="14dp" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/ch4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Give a maximum of 5 hit on the victims back. after each hit , verify if the problem is sorted."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView34"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="طبق 5 ضربات على مستوى ظهر الضحية (انظر للاسفل للمزيد من التوضيح), بعد كل ضربة تفقد الضحية للتاكد من ان المشكلة حلت."
-                android:textAlignment="center" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="14dp" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="If hitting the victim's back doesn't work, apply 5 abdominal compressions."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="في حال عدم فاعلية الضربات , قم بتطبيق 5 ضغطات بطنية (مناورة هايمليخ)."
+                android:text="@string/ch4"
                 android:textAlignment="center" />
 
             <Space
@@ -168,35 +101,10 @@
                 android:layout_height="14dp" />
 
             <TextView
-                android:id="@+id/textView37"
+                android:id="@+id/ch5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="If the problem persists, Alternate between the two methods given above."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView38"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="في حال تواصل المشكلة, قم بتطبيق التقنيتين المذكورة اعلاه بتناوب."
-                android:textAlignment="center" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="17dp" />
-
-            <TextView
-                android:id="@+id/textView40"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="If the victim loses conciousness, place him gently on the floor and immidiatly alert emergency services, then apply a cardio-pulmunary re-animation procedure, starting with 30 thoracic compressions."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView39"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="في حال فقدان الضحية للوعي , قم بوضعه على الارض بلطف و اعلم خدمات الطوارى, قم بتطبيق انعاش قلبي-رىوي , بتطبيق 30 ضغطة صدرية في البداية."
+                android:text="@string/ch5"
                 android:textAlignment="center" />
 
             <Space
@@ -214,17 +122,10 @@
                 android:layout_height="19dp" />
 
             <TextView
-                android:id="@+id/textView42"
+                android:id="@+id/ch6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Keep applying the re-animation procedure until emergency services arrive , or until victim regains normal respiration functions."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView41"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="واصل عملية الانعاش حتى وصول خدمات الطوارى , او حتى يسترجع المصاب القدرة على التنفس."
+                android:text="@string/ch6"
                 android:textAlignment="center" />
 
             <Space
@@ -232,19 +133,10 @@
                 android:layout_height="17dp" />
 
             <TextView
-                android:id="@+id/textView44"
+                android:id="@+id/ch7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Back-tapping procedure"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView43"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="تطبيق الضربات على الظهر"
+                android:text="@string/ch7"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="18sp" />
@@ -264,17 +156,10 @@
                 android:layout_height="17dp" />
 
             <TextView
-                android:id="@+id/textView47"
+                android:id="@+id/ch8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Grab the victim by the side (as shown). Administer a maximum of 5 hits between the victims scapulas."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView48"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="امسك الضحية من الخلف واضعا ذراعك حول ظلوعه السفلى.قم بتطبيق 5 ضربات بين لوحيه الكتفيين."
+                android:text="@string/ch8"
                 android:textAlignment="center" />
 
             <Space
@@ -282,19 +167,10 @@
                 android:layout_height="17dp" />
 
             <TextView
-                android:id="@+id/textView46"
+                android:id="@+id/ch9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Abdominal compression:"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView45"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="الضغطات البطنية (مناورة هامليخ)"
+                android:text="@string/ch9"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="18sp" />
@@ -314,31 +190,16 @@
                 android:layout_height="17dp" />
 
             <TextView
-                android:id="@+id/textView50"
+                android:id="@+id/ch10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Grab the victim from the back surrounding his abdomen with your arms (as shown). place fists between navel and sternum. Pull toward yourself , in a motion that's moving up."
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView49"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="امسك الضحية من الخلف ومطوقا المنطقة الواقعة بين السرة و صدر الضحية بذراعيك. اسحب يديك في اتجاهك بحركة متجهة نحو الاعلى."
+                android:text="@string/ch10"
                 android:textAlignment="center" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="46dp" />
 
-            <TextView
-                android:id="@+id/textView51"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="CRT - RRDL  ® 2017"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="10sp" />
         </LinearLayout>
     </ScrollView>
 

@@ -1,17 +1,72 @@
 <resources>
     <string name="app_name">CRT</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="home">Home</string>
+    <string name="chat">Chat</string>
+    <string name="map">Map</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="firststepeng">Evalutate safety conditions. and make sure that there is no supplementary hazards(trafic,fire,electric shock hazard..) Do not enter the accident site if there\'s a risk to you. guarantee the safety of the victims and other persons who are present. if the situation is too dangerous for you to intervene, Alert emergency services. create a safe perimeter around the accident site and wait safely for EMS arrival.</string>
-    <string name="firststepar">قم بتقدير ضروف السلامة. تاكد من عدم وجود مخاطر ثانوية (حركة سير , حريق , خطر صعقة كهرباىية..) لا تدخل الى موقع الحادث الا في حال عدم وجود خطر على سلامتك. تاكد من سلامة المصابين و الاشخاص الحاضرين بالموقع. في حال تعذر امكانية التدخل, قم باعلام خدمات الطوارى. قم بتطويق الموقع بمحيط سلامة و انتظر وصول خدمات الطوارى.</string>
-    <string name="scndstpen">Present yourself and explain to the victim what are you intending to do. verify that the victim is conscious and breathing. notice any alteration in consciousness or breathing.These informations would be tranfered to the EMS.</string>
-    <string name="scndstpar">قم بتقديم نفسك للمصاب و فسر له ما تنوي القيام به للمساعدة تاكد من ان المصاب في حالة وعي و تنفس طبيعيين. اي خلل في هاته الحالتين تعلم به خدمات الطوارى.</string>
-    <string name="Thrdstepen">If you need help, call for the emergency services. EMS phone numbers are available on the screen. You will have to share these informations with the EMS. -Your phone number or the phone you\'re calling from -If necessary , your name -The problem\'s nature(accident , illness) -Risk factors(fire,explosions,..) -The precise location of the event -Number of persons hurt. -State of each victim. -Measures taken at the site.</string>
-    <string name="thrdstpAR">في حال احتياجك الى المساعدة قم بالاتصال بخدمات الطوارى(الارقام موجودة على القاىمة) يجب عليك الاجابة على الاسىلة التالية: -رقم هاتفك او الهاتف الذي يتم منه الاتصال, -في الضرورة , اسمك. -المخاطر الحاضرة في الموقع. -الوصف الدقيق للموقع الجغرافي لمكان الحدث. -حالة كل مصاب. -الاجراءات المتخذة في موقع الحدث.</string>
-    <string name="frthstpEN">Deliver first aid in a calm and well paced manner.</string>
-    <string name="frthstpAR">قم بتقديم الاسعافات الاولية بطريقة هادىة و رصينة.</string>
+    <!--before acting-->
+    <string name="bi">Before Intervening</string>
+    <string name="bi0">First step : Secure the site</string>
+    <string name="bi1">Evalutate safety conditions. and make sure that there is no supplementary hazards(trafic,fire,electric shock hazard..) Do not enter the accident site if there\'s a risk to you. guarantee the safety of the victims and other persons who are present. if the situation is too dangerous for you to intervene, Alert emergency services. create a safe perimeter around the accident site and wait safely for EMS arrival.</string>
+    <string name="bi2">Present yourself and explain to the victim what are you intending to do. verify that the victim is conscious and breathing. notice any alteration in consciousness or breathing.These informations would be tranfered to the EMS.</string>
+    <string name="bi3">If you need help, call for the emergency services. EMS phone numbers are available on the screen. You will have to share these informations with the EMS. -Your phone number or the phone you\'re calling from -If necessary , your name -The problem\'s nature(accident , illness) -Risk factors(fire,explosions,..) -The precise location of the event -Number of persons hurt. -State of each victim. -Measures taken at the site.</string>
+    <string name="bi4">Deliver first aid in a calm and well paced manner.</string>
+    <string name="bi5">Second Step : Asses victim situation</string>
+    <string name="bi6">Third step : Call for help</string>
+    <string name="bi7">Fourth Step : Deliver First aid</string>
+    <!--first screen -->
+    <string name="fp0">First Aid</string>
+    <string name="fp1">Before acting </string>
+    <string name="fp2">Choking </string>
+    <string name="fp3">Bleeding </string>
+    <string name="fp4">Unconsciousness </string>
+
+    <!--choking-->
+    <string name="ch0">Asphyxiation</string>
+    <string name="ch1">Symptoms</string>
+    <string name="ch2"> Victim can\'t respond vocally but is conscious.\n Victim can\'t speak, breathe nor cough.</string>
+    <string name="ch3">Intervention</string>
+    <string name="ch4">Give a maximum of 5 hit on the victims back. after each hit , verify if the problem is sorted.\n If hitting the victim\'s back doesn\'t work, apply 5 abdominal compressions.</string>
+    <string name="ch5">If the problem persists, Alternate between the two methods given above.\n If the victim loses conciousness, place him gently on the floor and immidiatly alert emergency services, then apply a cardio-pulmunary re-animation procedure, starting with 30 thoracic compressions.</string>
+    <string name="ch6">Keep applying the re-animation procedure until emergency services arrive , or until victim regains normal respiration functions.</string>
+    <string name="ch7">Back-tapping procedure</string>
+    <string name="ch8">Grab the victim by the side (as shown). Administer a maximum of 5 hits between the victims scapulas.</string>
+    <string name="ch9">Abdominal compression</string>
+    <string name="ch10">Grab the victim from the back surrounding his abdomen with your arms (as shown). place fists between navel and sternum. Pull toward yourself , in a motion that\'s moving up.</string>
+    <!--unconsciousness-->
+    <string name="un0">Unconsciousness</string>
+    <string name="un1">Intervention</string>
+    <string name="un2">Verify that the victim is unresponsive.\n Free up victim\'s respiratory system.\n Verify that the victim is breathing.</string>
+    <string name="un3">Set the victim on his side in the "recovery position".</string>
+    <string name="un4">Inform the emergency services.</string>
+    <string name="un5">Verify regularly the victim\'s breathing until the arrival of help. </string>
+    <string name="un6">Airway clearing</string>
+    <string name="un7">when in loss of consciousness, Muscles are relaxed , which may lead to the obstruction of the victims airways by the tongue muscle.  This risk is minimised by leaning the victim head backwards.</string>
+    <string name="un8">Place your hand on the victim\'s chin and gently lean his head backwards while verifying that the victim is breathing:  by verifying that his chest is inflating/deflating, listening to breathing sound, or by putting your cheek close to his mouth to feel the air.</string>
+    <string name="un9">Recovery position</string>
+    <string name="un10">if the victim is wearing glasses take them off.</string>
+    <string name="un11">Set his arm in a right angle position to the body.</string>
+    <string name="un12">take his other arm, place his hand on his ear while it\'s palm is facing away.</string>
+    <string name="un13">Grab the far victim\'s leg by the knee pit.</string>
+    <string name="un14">Roll the victim by pulling on his leg , until his knee touches the ground.</string>
+    <string name="un15">Adjust the leg that\'s on the top until the thigh and knee form a right angle.</string>
+    <string name="un16">Open the victims mouth using your thumb and index, without moving his head , so liquids can flow outside.</string>
+    <!--bleeding-->
+    <string name="bl0">Bleeding</string>
+    <string name="bl1">Try as much as possible to avoid any contact with the victim\'s blood. Ask him to press the wound himself.</string>
+    <string name="bl2">If that\'s not possible, apply pressure to the wound directly, with your protected hands(disposable gloves,plastic bag..).</string>
+    <string name="bl3">Lay the victim in a horizontal position.</string>
+    <string name="bl4">Call the emergency services, or ask someone to do so if possible.</string>
+    <string name="bl5">If the wound keeps bleeding, apply even more pressure.</string>
+    <string name="bl6">Keep pressing the wound until emergency services arrive.</string>
+    <string name="bl7">If you must leave the victim, Use compression bandage to wrap the wound and replace your pressure.</string>
+    <string name="bl8">Wash hands thoroughly.</string>
+    <string name="bl9">Applying compression bandage</string>
+    <string name="bl10"> -The cloth used must be clean and cover all the wound -the application of the compression bandage must be done as fast as possible -The cloth used must be large enough to cover the wound , and long enough to take 2 twists around the wound. -the cloth must be tight really well to aply enough pressure. -If the bandage can\'t deliver enough pressure to stop the bleeding ,apply another one on top of it to add more pressure to the wound. -In case of failure , go back to manual pressure.</string>
+
+
+
+
 </resources>

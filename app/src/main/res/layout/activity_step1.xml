@@ -30,42 +30,23 @@
                     android:layout_height="47dp" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/bi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Before Intervening"
+                    android:text="@string/bi"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/textView23"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="قبل التدخل"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="47dp" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/bi0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="First step : Secure the site"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="الخطوة الاولى : تامين مكان الحادث"
+                    android:text="@string/bi0"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_red_light"
                     android:textSize="18sp" />
@@ -85,17 +66,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView28"
+                    android:id="@+id/bi1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/firststepeng"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView29"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/firststepar"
+                    android:text="@string/bi1"
                     android:textAlignment="center" />
 
                 <Space
@@ -103,19 +77,10 @@
                     android:layout_height="47dp" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/bi5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Second Step : Asses victim's situation"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView25"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="الخطوة الثانية : تقييم حالة المصاب"
+                    android:text="@string/bi5"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_red_light"
                     android:textSize="18sp" />
@@ -135,36 +100,20 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/bi2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/scndstpen" />
-
-                <TextView
-                    android:id="@+id/textView30"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/scndstpar"
-                    android:textAlignment="center" />
+                    android:text="@string/bi2" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="47dp" />
 
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/bi6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Third step : Call for help"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView26"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="الخطوة الثالثة : طلب المساعدة"
+                    android:text="@string/bi6"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_red_light"
                     android:textSize="18sp" />
@@ -184,17 +133,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/bi3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Thrdstepen"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView31"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/thrdstpAR"
+                    android:text="@string/bi3"
                     android:textAlignment="center" />
 
                 <Space
@@ -202,19 +144,10 @@
                     android:layout_height="47dp" />
 
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/bi7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fourth Step : Deliver First aid"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView27"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="الخطوة الرابعة : تقديم الاسعافات الاولية"
+                    android:text="@string/bi7"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_red_light"
                     android:textSize="18sp" />
@@ -234,31 +167,15 @@
                     android:layout_height="47dp" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/bi4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/frthstpEN"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView32"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/frthstpAR"
+                    android:text="@string/bi4"
                     android:textAlignment="center" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="47dp" />
-
-                <TextView
-                    android:id="@+id/textView33"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="CRT - RRDL®2017"
-                    android:textAlignment="center"
-                    android:textColor="@color/before"
-                    android:textSize="10sp" />
 
             </LinearLayout>
         </ScrollView>

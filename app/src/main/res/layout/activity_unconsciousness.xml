@@ -27,21 +27,12 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView76"
+                    android:id="@+id/un0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Unconsciousness"
+                    android:text="@string/un0"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/textView77"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="الاغماء"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
                     android:textSize="24sp" />
 
                 <Space
@@ -49,17 +40,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView78"
+                    android:id="@+id/un1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Intervention"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView79"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="التدخل"
+                    android:text="@string/un1"
                     android:textAlignment="center" />
 
                 <Space
@@ -77,45 +61,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView80"
+                    android:id="@+id/un2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Verify that the victim is unresponsive."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView81"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Free up victim's respiratory system."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView86"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Verify that the victim is breathing."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView82"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="تفقد ان الضحية غير متجاوب."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView83"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="حرر المسالك الهواىية للضحية."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView87"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="تفقد تنفس المصاب."
+                    android:text="@string/un2"
                     android:textAlignment="center" />
 
                 <Space
@@ -133,17 +82,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView84"
+                    android:id="@+id/un3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='Set the victim on his side in the "recovery position".'
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView85"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="ضع المصاب في وضع السلامة الجانبي (وضع الافاقة)."
+                    android:text="@string/un3"
                     android:textAlignment="center" />
 
                 <Space
@@ -161,17 +103,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView88"
+                    android:id="@+id/un4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Inform the emergency services."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView89"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="اعلم خدمات الطوارى."
+                    android:text="@string/un4"
                     android:textAlignment="center" />
 
                 <Space
@@ -189,17 +124,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView90"
+                    android:id="@+id/un5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Verify regularly the victim's breathing until the arrival of help. "
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView91"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="واصل مراقبة تنفس المصاب"
+                    android:text="@string/un5"
                     android:textAlignment="center" />
 
                 <Space
@@ -207,19 +135,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView92"
+                    android:id="@+id/un6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Airway clearing"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView93"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="تسريح المسالك التنفسية"
+                    android:text="@string/un6"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_green_dark"
                     android:textSize="18sp" />
@@ -229,17 +148,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView95"
+                    android:id="@+id/un7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" في حالة فقدان الوعي ترتخي عضلات المصاب , مما يزيد من فرصه في الاختناق بسبب انسداد المسالك التنفسية بعضلة اللسان. يمكن تقليل هذا الاحتمال بامالة راس المصاب نحو الخلف."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView94"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="when in loss of consciousness, Muscles are relaxed , which may lead to the obstruction of the victims airways by the tongue muscle.  This risk is minimised by leaning the victim head backwards."
+                    android:text="@string/un7"
                     android:textAlignment="center" />
 
                 <Space
@@ -267,17 +179,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView96"
+                    android:id="@+id/un8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Place your hand on the victim's chin and gently lean his head backwards while verifying that the victim is breathing:  by verifying that his chest is inflating/deflating, listening to breathing sound, or by putting your cheek close to his mouth to feel the air."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView97"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" ضع يدك على ذقن المصاب و قم بامالة راسه الى الخلف بلطف مع مراقبة تنفسه. يمكن مراقبة تنفس المصاب بمراقبة انتفاخ و ارتخاء صدره , بالاستماع الى اصوات الشهيق و الزفير او بتقريب الخد الى فم المصاب لتحسس نفسه."
+                    android:text="@string/un8"
                     android:textAlignment="center" />
 
                 <Space
@@ -285,19 +190,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView100"
+                    android:id="@+id/un9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Recovery position"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView98"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="وضع السلامة الجانبي (وضع الافاقة)"
+                    android:text="@string/un9"
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_green_dark"
                     android:textSize="18sp" />
@@ -307,17 +203,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView102"
+                    android:id="@+id/un10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="if the victim is wearing glasses take them off."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView101"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="انزع نظارات المصاب ان كان يرتديها."
+                    android:text="@string/un10"
                     android:textAlignment="center" />
 
                 <Space
@@ -335,17 +224,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView103"
+                    android:id="@+id/un11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Set his arm in a right angle position to the body."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView104"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="اثني مرفق المصاب لكي يشكل زاوية قاىمة مع جسده."
+                    android:text="@string/un11"
                     android:textAlignment="center" />
 
                 <Space
@@ -363,17 +245,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView105"
+                    android:id="@+id/un12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="take his other arm, place his hand on his ear while it's palm is facing away."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView106"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="خذ بيده الاخرى و ضعها على اذنه بالجهة المقابلة , مع ابقاء الكف بالجهة الخارجية."
+                    android:text="@string/un12"
                     android:textAlignment="center" />
 
                 <Space
@@ -391,17 +266,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView107"
+                    android:id="@+id/un13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Grab the far victim's leg by the knee pit."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView108"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="امسك رجل المصاب الابعد عنك من الجهة الداخلية للركبة."
+                    android:text="@string/un13"
                     android:textAlignment="center" />
 
                 <Space
@@ -419,17 +287,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView109"
+                    android:id="@+id/un14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Roll the victim by pulling on his leg , until his knee touches the ground."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView110"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="اسحب رجل المصاب لكي تديره على جنبه , حتى تلامس ركبته الارض."
+                    android:text="@string/un14"
                     android:textAlignment="center" />
 
                 <Space
@@ -447,17 +308,10 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView112"
+                    android:id="@+id/un15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Adjust the leg that's on the top until the thigh and knee form a right angle."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView111"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="عدل وضعية رجل المصاب العليا لكي تشكل زاوية قاىمة مع فخذه."
+                    android:text="@string/un15"
                     android:textAlignment="center" />
 
                 <Space
@@ -475,31 +329,15 @@
                     android:layout_height="24dp" />
 
                 <TextView
-                    android:id="@+id/textView113"
+                    android:id="@+id/un16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Open the victims mouth using your thumb and index, without moving his head , so liquids can flow outside."
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView114"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="افتح فم المصاب مستعملا ابهامك و سبابتك لكي يتسنى للسواىل ان تغادر الفم الى الخارج."
+                    android:text="@string/un16"
                     android:textAlignment="center" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="24dp" />
-
-                <TextView
-                    android:id="@+id/textView115"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="CRT - RRDL ® 2017"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="10sp" />
 
             </LinearLayout>
         </ScrollView>
