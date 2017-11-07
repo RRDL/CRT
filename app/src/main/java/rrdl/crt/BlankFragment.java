@@ -9,16 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Switch;
-
 
 public class BlankFragment extends Fragment implements View.OnClickListener {
 
-    private Button btn1;
-    private Button btn2;
-    private Button btn3;
-    private Button btn4;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -58,24 +52,16 @@ public class BlankFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
        View view =inflater.inflate(R.layout.fragment_blank, container, false);
 
-        btn1=(Button)view.findViewById(R.id.fp1);
+        Button btn1=(Button)view.findViewById(R.id.fp1);
         btn1.setOnClickListener(this);
-        btn2=(Button)view.findViewById(R.id.fp2);
+        Button btn2=(Button)view.findViewById(R.id.fp2);
         btn2.setOnClickListener(this);
-        btn3=(Button)view.findViewById(R.id.fp3);
+        Button btn3=(Button)view.findViewById(R.id.fp3);
         btn3.setOnClickListener(this);
-        btn4=(Button)view.findViewById(R.id.fp4);
+        Button btn4=(Button)view.findViewById(R.id.fp4);
         btn4.setOnClickListener(this);
         return view;
     }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -93,7 +79,6 @@ public class BlankFragment extends Fragment implements View.OnClickListener {
         mListener = null;
     }
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
 
     }
