@@ -70,7 +70,7 @@
     <string name="about">About</string>
     <string name="crt">Help and Donate</string>
     <string name="exit">Exit</string>
-
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
