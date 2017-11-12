@@ -1,9 +1,12 @@
 package rrdl.crt;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
@@ -11,19 +14,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.widget.Toolbar;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener{
 
-    Locale mylocale;
+
+    FragmentManager fm =getSupportFragmentManager();;
+    private Locale mylocale;
+    String Language;
+    Setting s;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            FragmentManager fm=getSupportFragmentManager();
+
             switch (item.getItemId()) {
                 case R.id.home:
                     fm.beginTransaction().replace(R.id.content,new BlankFragment()).commit();
@@ -43,7 +49,11 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setLanguage("ar");
+        s = new Setting();
+        Language = s.getLang();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        Language = preferences.getString("l",Language);
+        setLanguage(Language);
         setContentView(R.layout.activity_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -54,21 +64,43 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sharedPreferences = getSharedPreferences("lang", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("l",Language);
+        editor.apply();
+    }
+
+
+    /*
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences sharedPreferences = getSharedPreferences("lang", Context.MODE_PRIVATE);
+        sharedPreferences.getString("lang",Language);
+    }
+    */
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.settings) {
+            fm.beginTransaction().replace(R.id.content, new Setting()).commit();
+
             return true;
         }
+        if (id == R.id.about){}
+        if (id == R.id.crt){}
+        if (id == R.id.exit){}
 
         return super.onOptionsItemSelected(item);
 
@@ -78,18 +110,15 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     public void onFragmentInteraction(Uri uri) {
 
     }
-    //change language
-
-    private void setLanguage(String language){
+    public void setLanguage(String language){
         mylocale=new Locale(language);
         Resources resources=getResources();
         DisplayMetrics dm=resources.getDisplayMetrics();
         Configuration conf= resources.getConfiguration();
         conf.locale=mylocale;
         resources.updateConfiguration(conf,dm);
-        /*Intent refreshIntent=new Intent(MainActivity.this,MainActivity.class);
-        startActivity(refreshIntent);*/
         getBaseContext().getResources().updateConfiguration(conf,
                 getBaseContext().getResources().getDisplayMetrics());
     }
+
 }

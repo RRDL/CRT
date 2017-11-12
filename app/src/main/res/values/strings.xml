@@ -71,6 +71,8 @@
     <string name="crt">Help and Donate</string>
     <string name="exit">Exit</string>
     <string name="title_activity_maps">Map</string>
+    <string name="hint">Input...</string>
+    <string name="Language">Language</string>
 
 
 </resources>
