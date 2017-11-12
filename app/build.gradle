@@ -39,7 +39,6 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.google.android.gms:play-services-maps:11.0.4'
     apply plugin: 'com.google.gms.google-services'
-    compile 'com.github.nkzawa:socket.io-client:0.3.0'
 }
 
 
