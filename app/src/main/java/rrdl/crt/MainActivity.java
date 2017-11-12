@@ -12,12 +12,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener{
 
 
     FragmentManager fm =getSupportFragmentManager();;
@@ -78,15 +79,14 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         editor.apply();
     }
 
-
-    /*
     @Override
-    protected void onStart() {
-        super.onStart();
-        SharedPreferences sharedPreferences = getSharedPreferences("lang", Context.MODE_PRIVATE);
-        sharedPreferences.getString("lang",Language);
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
-    */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -98,9 +98,15 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
 
             return true;
         }
-        if (id == R.id.about){}
-        if (id == R.id.crt){}
-        if (id == R.id.exit){}
+        if (id == R.id.about){
+            fm.beginTransaction().replace(R.id.content, new About()).commit();
+        }
+        if (id == R.id.crt){
+            fm.beginTransaction().replace(R.id.content, new CrtInfo()).commit();
+        }
+        if (id == R.id.exit){
+            finish();
+        }
 
         return super.onOptionsItemSelected(item);
 
