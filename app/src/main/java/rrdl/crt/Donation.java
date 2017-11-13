@@ -41,6 +41,7 @@ public class Donation extends Fragment {
 
     }
 
+
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,6 +53,8 @@ public class Donation extends Fragment {
         mAdapter = new MyCustomAdapter(this, arrayList);
         mList.setAdapter(mAdapter);
 
+
+
         // connect to the server
         new connectTask().execute("");
 
@@ -59,10 +62,11 @@ public class Donation extends Fragment {
             @Override
             public void onClick(View view) {
 
-                String message = input.getText().toString();
+                //input.setTextAlignment(TEXT_ALIGNMENT_TEXT_END);
+                String message = " " + input.getText().toString() + " ";
 
                 //add the text in the arrayList
-                arrayList.add("Me : " + message);
+                arrayList.add(message);
 
                 //sends the message to the server
                 if (mClient != null) {
@@ -101,11 +105,9 @@ public class Donation extends Fragment {
         @Override
         protected void onProgressUpdate(String... values) {
             super.onProgressUpdate(values);
-
             //in the arrayList we add the messaged received from server
             arrayList.add(values[0]);
-            // notify the adapter that the data set has changed. This means that new message received
-            // from server was added to the list
+            // notify the adapter that the data set has changed
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -124,6 +126,7 @@ public class Donation extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 
 
 

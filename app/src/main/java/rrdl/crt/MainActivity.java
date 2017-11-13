@@ -21,10 +21,10 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener{
 
 
-    FragmentManager fm =getSupportFragmentManager();;
+    FragmentManager fm ;
     private Locale mylocale;
-    String Language;
-    Setting s;
+    private String Language;
+    private Setting s;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         setContentView(R.layout.activity_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        FragmentManager fm=getSupportFragmentManager();
+        fm=getSupportFragmentManager();
         fm.beginTransaction().add(R.id.content,new BlankFragment()).commit();
 
     }
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            finish();
+            this.finish();
             return false;
         }
         return super.onKeyDown(keyCode, event);
