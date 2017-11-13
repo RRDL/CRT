@@ -54,7 +54,6 @@ public class Donation extends Fragment {
         mList.setAdapter(mAdapter);
 
 
-
         // connect to the server
         new connectTask().execute("");
 
@@ -110,6 +109,16 @@ public class Donation extends Fragment {
             // notify the adapter that the data set has changed
             mAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
