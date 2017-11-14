@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "240906882912",
+    "firebase_url": "https://croissantrougetunisie.firebaseio.com",
+    "project_id": "croissantrougetunisie",
+    "storage_bucket": "croissantrougetunisie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240906882912:android:200a7871cb1bd97b",
+        "android_client_info": {
+          "package_name": "rrdl.crt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240906882912-1b2v13eo0on93kk8c5709klsl68ces89.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rrdl.crt",
+            "certificate_hash": "0cf0ef6ea026b2b3559f0a671ea80321f68e0263"
+          }
+        },
+        {
+          "client_id": "240906882912-5hrdjm1hcrl7gai137jsteu9arno3ck5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAREM3dz5_DIHzEhMd9Miz78z3mE5c8n6I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240906882912-5hrdjm1hcrl7gai137jsteu9arno3ck5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
