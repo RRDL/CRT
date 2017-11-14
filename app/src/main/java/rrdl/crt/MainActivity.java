@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            this.finish();
+            (new intentHandler()).Exit();
+            finish();
             return false;
         }
         return super.onKeyDown(keyCode, event);
@@ -106,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         }
         if (id == R.id.exit){
             finish();
+            (new intentHandler()).Exit();
+
         }
 
         return super.onOptionsItemSelected(item);
