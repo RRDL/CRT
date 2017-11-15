@@ -25,7 +25,7 @@ import java.util.Locale;
 
 import rrdl.crt.SocketService.LocalBinder;
 
-public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener,SocketService.ServiceCallbacks,Donation.MessageSender {
 
 
     FragmentManager fm ;
@@ -70,24 +70,28 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fm=getSupportFragmentManager();
         fm.beginTransaction().add(R.id.content,new BlankFragment()).commit();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         Intent i = new Intent(this,SocketService.class);
         bindService(i,myConnection,Context.BIND_AUTO_CREATE);
     }
 
-    public void sendMessage(String msg){
-        myService.sendMessage(msg);
-        Toast.makeText(getApplicationContext(),"SENT : "+msg,Toast.LENGTH_LONG).show();
-    }
     private ServiceConnection myConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
+            isBound = true;
             LocalBinder binder = (LocalBinder) service;
             myService = binder.getService();
+            myService.setCallbacks(MainActivity.this);
             isBound = true;
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
+            myService = null;
             isBound = false;
         }
     };
@@ -159,4 +163,14 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
                 getBaseContext().getResources().getDisplayMetrics());
     }
 
+
+    @Override
+    public void sendMessage(String message) {
+        myService.sendMessage(message);
+    }
+
+    @Override
+    public void getMsg(String msg) {
+        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
+    }
 }

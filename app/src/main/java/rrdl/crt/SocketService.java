@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -22,6 +22,8 @@ public class SocketService extends Service {
     BufferedReader in ;
     Socket socket;
     InetAddress serverAddr;
+    String msg;
+    private ServiceCallbacks serviceCallbacks;
 
     public SocketService() {}
     private final IBinder myBinder = new LocalBinder();
@@ -38,7 +40,7 @@ public class SocketService extends Service {
     //TCPClient mTcpClient = new TCPClient();
     public class LocalBinder extends Binder {
         public SocketService getService() {
-            System.out.println("I am in Localbinder ");
+            //System.out.println("I am in Localbinder ");
             return SocketService.this;
         }
     }
@@ -48,28 +50,20 @@ public class SocketService extends Service {
         connect();
         //System.out.println("I am in on create");
     }
-    public void sendMessage(String message){
+    public void sendMessage(String msg){
         if (out != null && !out.checkError()) {
             //System.out.println("in sendMessage"+message);
-            out.println(message);
+            out.println(msg);
             out.flush();
         }
     }
-    public String recieveMessage(){
-        String msg = "";
-        if(in != null){
-            try {
-                msg = in.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return msg;
-    }
+
+
 
     public void connect(){
         Runnable connect = new connectSocket();
         new Thread(connect).start();
+
     }
 
     class connectSocket implements Runnable {
@@ -108,6 +102,17 @@ public class SocketService extends Service {
                 Log.e("TCP", "C: Error", e);
 
             }
+            while(true){
+                try{
+                    msg = in.readLine();
+                    serviceCallbacks.getMsg(msg);
+                     Toast.makeText(getApplicationContext(),"Listening...",Toast.LENGTH_LONG).show();
+                    // call Donation recieve function
+                }catch (Exception e){
+                    e.printStackTrace();
+                    break;
+                }
+            }
 
         }
 
@@ -122,5 +127,13 @@ public class SocketService extends Service {
             e.printStackTrace();
         }
         socket = null;
+    }
+
+    public void setCallbacks(ServiceCallbacks callbacks) {
+        serviceCallbacks = callbacks;
+    }
+
+    public interface ServiceCallbacks {
+        public void getMsg(String msg);
     }
 }

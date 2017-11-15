@@ -8,13 +8,11 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.github.bassaer.chatmessageview.model.User;
 import com.github.bassaer.chatmessageview.models.Message;
@@ -28,17 +26,16 @@ import java.util.List;
 
 public class Donation extends Fragment {
 
+
     private ChatView mChatView;
     private MessageList mMessageList;
     private ArrayList<User> mUsers;
-    //private static final int READ_REQUEST_CODE = 100;
-    int myId ;
-    Bitmap myIcon ;
-    String myName ;
-    User me ;
-    int Id ;
-    Bitmap Icon ;
-    User you ;
+    private int myId ;
+    private Bitmap myIcon ;
+    private String myName ;
+    private User me ;
+    private User you ;
+    private MessageSender mMessageSenderCallback;
 
 
 
@@ -54,31 +51,23 @@ public class Donation extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myId = 0;
+        myIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_2);
+        myName = "User";
+        me = new User(myId, myName, myIcon);
+        you = new User(myId, myName, myIcon);
     }
-
-
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_donation, container, false);
         initUsers();
-        mChatView = (ChatView) v.findViewById(R.id.chat_view);
+        mChatView =  v.findViewById(R.id.chat_view);
         loadMessages();
-
-         myId = 0;
-         myIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_2);
-         myName = "User";
-         me = new User(myId, myName, myIcon);
-         Id = 1;
-         Icon = BitmapFactory.decodeResource(getResources(), R.drawable.face_1);
-         you = new User(Id, myName, Icon);
-
-
         //Set UI parameters if you need
         mChatView.setRightBubbleColor(Color.RED);
         mChatView.setLeftBubbleColor(Color.RED);
-        mChatView.setBackgroundColor(Color.WHITE);
         mChatView.setSendButtonColor(ContextCompat.getColor(v.getContext(), R.color.bleeding));
         mChatView.setSendIcon(R.drawable.ic_action_send);
         mChatView.setRightMessageTextColor(Color.WHITE);
@@ -86,7 +75,6 @@ public class Donation extends Fragment {
         mChatView.setUsernameTextColor(Color.RED);
         mChatView.setSendTimeTextColor(Color.RED);
         mChatView.setDateSeparatorColor(Color.WHITE);
-        //mChatView.setInputTextHint("...");
         mChatView.setMessageMarginTop(5);
         mChatView.setMessageMarginBottom(5);
         //Click Send Button
@@ -95,19 +83,16 @@ public class Donation extends Fragment {
             public void onClick(View view) {
                 //new message
                 String msg = mChatView.getInputText();
-                Toast.makeText(getContext(),msg,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),msg,Toast.LENGTH_LONG).show();
                 Message message = new Message.Builder()
                         .setUser(me)
                         .setRightMessage(true)
                         .setMessageText(msg)
                         .hideIcon(true)
                         .build();
+                //send msg throw socket
                 //Set to chat view
-                try{
-                    new MainActivity().sendMessage(msg);
-                }catch (Exception e){
-                    Toast.makeText(getContext(),e.toString(),Toast.LENGTH_LONG).show();
-                }
+                mMessageSenderCallback.sendMessage(msg);
                 mChatView.send(message);
                 mMessageList.add(message);
                 //Reset edit text
@@ -166,11 +151,17 @@ public class Donation extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        try {
+            mMessageSenderCallback = (MessageSender) context;
+        } catch (ClassCastException e) {
+            // Error, class doesn't implement the interface
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        mMessageSenderCallback = null;
     }
 
     public interface OnFragmentInteractionListener {
@@ -186,19 +177,11 @@ public class Donation extends Fragment {
 
     private void initUsers() {
         mUsers = new ArrayList<>();
-        //User id
-        int myId = 0;
-        //User icon
-        Bitmap myIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_2);
-        //User name
-        String myName = "User";
-
-        int yourId = 1;
-        Bitmap yourIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_1);
-
+//        int myId = 0;
+   //     Bitmap myIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_2);
+     //   String myName = "User";
         final User me = new User(myId, myName, myIcon);
-        final User you = new User(yourId, myName, yourIcon);
-
+        final User you = new User(myId, myName, myIcon);
         mUsers.add(me);
         mUsers.add(you);
     }
@@ -248,13 +231,10 @@ public class Donation extends Fragment {
         //Save message
         AppData.putMessageList(getContext(), mMessageList);
     }
+    interface MessageSender {
+        void sendMessage(String message);
 
-    @VisibleForTesting
-    public ArrayList<User> getUsers() {
-        return mUsers;
     }
-
-
 
 
 }
