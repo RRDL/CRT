@@ -14,6 +14,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.github.bassaer.chatmessageview.model.User;
 import com.github.bassaer.chatmessageview.models.Message;
@@ -24,18 +25,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.app.Activity.RESULT_OK;
-
 
 public class Donation extends Fragment {
 
     private ChatView mChatView;
     private MessageList mMessageList;
     private ArrayList<User> mUsers;
-
-    private int mReplyDelay = -1;
-
-    private static final int READ_REQUEST_CODE = 100;
+    //private static final int READ_REQUEST_CODE = 100;
+    int myId ;
+    Bitmap myIcon ;
+    String myName ;
+    User me ;
+    int Id ;
+    Bitmap Icon ;
+    User you ;
 
 
 
@@ -63,14 +66,14 @@ public class Donation extends Fragment {
         mChatView = (ChatView) v.findViewById(R.id.chat_view);
         loadMessages();
 
+         myId = 0;
+         myIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_2);
+         myName = "User";
+         me = new User(myId, myName, myIcon);
+         Id = 1;
+         Icon = BitmapFactory.decodeResource(getResources(), R.drawable.face_1);
+         you = new User(Id, myName, Icon);
 
-        //User id
-        int myId = 0;
-        //User icon
-        Bitmap myIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_2);
-        //User name
-        String myName = "Michael";
-        final User me = new User(myId, myName, myIcon);
 
         //Set UI parameters if you need
         mChatView.setRightBubbleColor(Color.RED);
@@ -83,27 +86,33 @@ public class Donation extends Fragment {
         mChatView.setUsernameTextColor(Color.RED);
         mChatView.setSendTimeTextColor(Color.RED);
         mChatView.setDateSeparatorColor(Color.WHITE);
-        mChatView.setInputTextHint("...");
+        //mChatView.setInputTextHint("...");
         mChatView.setMessageMarginTop(5);
         mChatView.setMessageMarginBottom(5);
-
-
         //Click Send Button
         mChatView.setOnClickSendButtonListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //new message
+                String msg = mChatView.getInputText();
+                Toast.makeText(getContext(),msg,Toast.LENGTH_LONG).show();
                 Message message = new Message.Builder()
                         .setUser(me)
                         .setRightMessage(true)
-                        .setMessageText(mChatView.getInputText())
+                        .setMessageText(msg)
                         .hideIcon(true)
                         .build();
                 //Set to chat view
+                try{
+                    new MainActivity().sendMessage(msg);
+                }catch (Exception e){
+                    Toast.makeText(getContext(),e.toString(),Toast.LENGTH_LONG).show();
+                }
                 mChatView.send(message);
                 mMessageList.add(message);
                 //Reset edit text
                 mChatView.setInputText("");
+                //receiveMessage(msg);
 
             }
 
@@ -111,32 +120,27 @@ public class Donation extends Fragment {
         return v;
     }
 
-    private void receiveMessage(String sendText) {
-        //Ignore hey
-        if (!sendText.contains("hey")) {
-
-            //Receive message
-            final Message receivedMessage = new Message.Builder()
-                    .setUser(mUsers.get(1))
-                    .setRightMessage(false)
-                    .setMessageText(sendText)
-                    .setMessageStatusType(Message.MESSAGE_STATUS_ICON)
-                    .build();
-
-            if (sendText.equals(Message.Type.PICTURE.name())) {
-                receivedMessage.setMessageText("Nice!");
-            }
-
-        }
+    public void receiveMessage(String sendText) {
+        Message message = new Message.Builder()
+                .setUser(you)
+                .setRightMessage(false)
+                .setMessageText(sendText)
+                .hideIcon(true)
+                .build();
+        //Set to chat view
+        mChatView.send(message);
+        mMessageList.add(message);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        /*
         if (requestCode != READ_REQUEST_CODE || resultCode != RESULT_OK || data == null) {
             return;
-        }
+        } */
         Uri uri = data.getData();
+
         try {
             Bitmap picture = MediaStore.Images.Media.getBitmap(mChatView.getContext().getContentResolver(), uri);
             Message message = new Message.Builder()
@@ -187,14 +191,13 @@ public class Donation extends Fragment {
         //User icon
         Bitmap myIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_2);
         //User name
-        String myName = "Michael";
+        String myName = "User";
 
         int yourId = 1;
         Bitmap yourIcon = BitmapFactory.decodeResource(getResources(), R.drawable.face_1);
-        String yourName = "Emily";
 
         final User me = new User(myId, myName, myIcon);
-        final User you = new User(yourId, yourName, yourIcon);
+        final User you = new User(yourId, myName, yourIcon);
 
         mUsers.add(me);
         mUsers.add(you);
@@ -215,6 +218,7 @@ public class Donation extends Fragment {
                 for (User user : mUsers) {
                     if (message.getUser().getId() == user.getId()) {
                         message.getUser().setIcon(user.getIcon());
+                        message.hideIcon(true);
                     }
                 }
                 if (!message.isDateCell() && message.isRightMessage()) {

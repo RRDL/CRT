@@ -1,11 +1,15 @@
 package rrdl.crt;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -15,8 +19,11 @@ import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.Locale;
+
+import rrdl.crt.SocketService.LocalBinder;
 
 public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener{
 
@@ -25,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     private Locale mylocale;
     private String Language;
     private Setting s;
+    SocketService myService ;
+    Boolean isBound= false;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -60,8 +70,27 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fm=getSupportFragmentManager();
         fm.beginTransaction().add(R.id.content,new BlankFragment()).commit();
-
+        Intent i = new Intent(this,SocketService.class);
+        bindService(i,myConnection,Context.BIND_AUTO_CREATE);
     }
+
+    public void sendMessage(String msg){
+        myService.sendMessage(msg);
+        Toast.makeText(getApplicationContext(),"SENT : "+msg,Toast.LENGTH_LONG).show();
+    }
+    private ServiceConnection myConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            LocalBinder binder = (LocalBinder) service;
+            myService = binder.getService();
+            isBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            isBound = false;
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
