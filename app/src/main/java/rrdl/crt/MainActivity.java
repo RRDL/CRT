@@ -19,13 +19,12 @@ import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.util.Locale;
 
 import rrdl.crt.SocketService.LocalBinder;
 
-public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener,SocketService.ServiceCallbacks,Donation.MessageSender {
+public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener,Donation.MessageSender {
 
 
     FragmentManager fm ;
@@ -77,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         super.onStart();
         Intent i = new Intent(this,SocketService.class);
         bindService(i,myConnection,Context.BIND_AUTO_CREATE);
+
     }
 
     private ServiceConnection myConnection = new ServiceConnection() {
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
             isBound = true;
             LocalBinder binder = (LocalBinder) service;
             myService = binder.getService();
-            myService.setCallbacks(MainActivity.this);
+            //myService.setCallbacks(MainActivity.this);
             isBound = true;
         }
 
@@ -166,11 +166,8 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
 
     @Override
     public void sendMessage(String message) {
+
         myService.sendMessage(message);
     }
 
-    @Override
-    public void getMsg(String msg) {
-        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
-    }
 }

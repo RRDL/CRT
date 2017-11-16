@@ -74,7 +74,7 @@ public class Donation extends Fragment {
         mChatView.setLeftMessageTextColor(Color.WHITE);
         mChatView.setUsernameTextColor(Color.RED);
         mChatView.setSendTimeTextColor(Color.RED);
-        mChatView.setDateSeparatorColor(Color.WHITE);
+        mChatView.setDateSeparatorColor(Color.RED);
         mChatView.setMessageMarginTop(5);
         mChatView.setMessageMarginBottom(5);
         //Click Send Button
@@ -164,6 +164,7 @@ public class Donation extends Fragment {
         mMessageSenderCallback = null;
     }
 
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
@@ -224,7 +225,6 @@ public class Donation extends Fragment {
         super.onResume();
         initUsers();
     }
-
     @Override
     public void onPause() {
         super.onPause();

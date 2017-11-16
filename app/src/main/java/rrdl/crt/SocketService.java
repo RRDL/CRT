@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,19 +14,20 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
+import static android.content.ContentValues.TAG;
+
 public class SocketService extends Service {
     public static final String SERVERIP = "192.168.43.221";
-    public static final int SERVERPORT = 2222;
+    //public static final int SERVERPORT = 2222;
     PrintWriter out;
     BufferedReader in ;
     Socket socket;
     InetAddress serverAddr;
-    String msg;
-    private ServiceCallbacks serviceCallbacks;
-
+    Boolean mRun = false;
     public SocketService() {}
     private final IBinder myBinder = new LocalBinder();
 
+    String incomingMessage;
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
@@ -48,8 +48,8 @@ public class SocketService extends Service {
     public void onCreate() {
         super.onCreate();
         connect();
-        //System.out.println("I am in on create");
     }
+
     public void sendMessage(String msg){
         if (out != null && !out.checkError()) {
             //System.out.println("in sendMessage"+message);
@@ -57,6 +57,7 @@ public class SocketService extends Service {
             out.flush();
         }
     }
+
 
 
 
@@ -69,59 +70,64 @@ public class SocketService extends Service {
     class connectSocket implements Runnable {
         @Override
         public void run() {
+
+            mRun = true;
+
             try {
-                //here you must put your computer's IP address.
-                serverAddr = InetAddress.getByName(SERVERIP);
-                Log.e("TCP Client", "C: Connecting...");
-                //create a socket to make the connection with the server
-                socket = new Socket(serverAddr, SERVERPORT);
-                Log.e("SOCKET","Socket Created");
+                // Creating InetAddress object from ipNumber passed via constructor from IpGetter class.
+                InetAddress serverAddress = InetAddress.getByName(SERVERIP);
+
+                Log.d(TAG, "Connecting...");
+                Socket socket = new Socket(serverAddress, 2222);
 
                 try {
-                    //send the message to the server
+                    // Create PrintWriter object for sending messages to server.
                     out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-                    Log.e("TCP Client", "C: Sent.");
-                    Log.e("TCP Client", "C: Done.");
-                }
-                catch (Exception e) {
 
-                    Log.e("TCP Writer", "S: Error", e);
-
-                }
-                try {
-                    //read from the server
+                    //Create BufferedReader object for receiving messages from server.
                     in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    Log.e("TCP Client", "C: Recieve.");
-                    Log.e("TCP Client", "C: Done.");
+                    while (mRun) {
+                        incomingMessage = in.readLine();
+                        if (incomingMessage != null) {
 
-                }catch (Exception e){
-                    Log.e("TCP Reader", "C: Error", e);
+                            Log.e("MSG",incomingMessage);
+
+                        }
+
+                    }
+
+                } catch (Exception e) {
+
+                    Log.d(TAG, "Error", e);
+
+
+                } finally {
+
+                    out.flush();
+                    out.close();
+                    in.close();
+                    socket.close();
+                    Log.d(TAG, "Socket Closed");
                 }
+
             } catch (Exception e) {
 
-                Log.e("TCP", "C: Error", e);
+                Log.d(TAG, "Error", e);
 
-            }
-            while(true){
-                try{
-                    msg = in.readLine();
-                    serviceCallbacks.getMsg(msg);
-                     Toast.makeText(getApplicationContext(),"Listening...",Toast.LENGTH_LONG).show();
-                    // call Donation recieve function
-                }catch (Exception e){
-                    e.printStackTrace();
-                    break;
-                }
             }
 
         }
-
+    }
+    public void stopClient(){
+        Log.d(TAG, "Client stopped!");
+        mRun = false;
     }
     @Override
     public void onDestroy() {
         super.onDestroy();
         try {
             socket.close();
+            Log.e("Socket","Socket closed");
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -129,11 +135,5 @@ public class SocketService extends Service {
         socket = null;
     }
 
-    public void setCallbacks(ServiceCallbacks callbacks) {
-        serviceCallbacks = callbacks;
-    }
 
-    public interface ServiceCallbacks {
-        public void getMsg(String msg);
-    }
 }
