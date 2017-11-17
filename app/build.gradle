@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:11.6.0'
     compile 'com.github.bassaer:chatmessageview:1.5.3'
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.github.halysongoncalves:pugnotification:1.8.1'
     apply plugin: 'com.google.gms.google-services'
 }
 

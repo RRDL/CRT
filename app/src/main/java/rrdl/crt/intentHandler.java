@@ -8,6 +8,7 @@ class intentHandler {
     void start(Activity a, Class e){
         Intent i = new Intent(a,e);
         a.startActivity(i);
+        //a.finish();
     }
 
     intentHandler(){}

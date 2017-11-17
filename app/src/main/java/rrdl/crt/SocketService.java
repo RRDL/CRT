@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -26,8 +27,8 @@ public class SocketService extends Service {
     Boolean mRun = false;
     public SocketService() {}
     private final IBinder myBinder = new LocalBinder();
-
     String incomingMessage;
+
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
@@ -35,6 +36,7 @@ public class SocketService extends Service {
         //throw new UnsupportedOperationException("Not yet implemented");
         return myBinder;
     }
+
 
 
     //TCPClient mTcpClient = new TCPClient();
@@ -89,9 +91,8 @@ public class SocketService extends Service {
                     while (mRun) {
                         incomingMessage = in.readLine();
                         if (incomingMessage != null) {
-
+                            recieveMsg(incomingMessage);
                             Log.e("MSG",incomingMessage);
-
                         }
 
                     }
@@ -122,6 +123,14 @@ public class SocketService extends Service {
         Log.d(TAG, "Client stopped!");
         mRun = false;
     }
+    public void recieveMsg(String msg) {
+        Intent intent = new Intent("my-event");
+        // add data
+        intent.putExtra("message", msg);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+    }
+
+
     @Override
     public void onDestroy() {
         super.onDestroy();

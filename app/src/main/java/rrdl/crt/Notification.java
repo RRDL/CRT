@@ -2,8 +2,6 @@ package rrdl.crt;
 
 import android.location.Location;
 import android.location.LocationListener;
-import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -26,7 +24,6 @@ public class Notification extends Fragment implements OnMapReadyCallback,Locatio
     private GoogleMap map;
     Marker marker;
     private LocationSource.OnLocationChangedListener mListener;
-    private LocationManager locationManager;
     crtLocation[] crt = new crtLocation[11];
 
     @Override
@@ -39,7 +36,7 @@ public class Notification extends Fragment implements OnMapReadyCallback,Locatio
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_notification, container, false);
-        mapView = (MapView) v.findViewById(R.id.map);
+        mapView =  v.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this); //this is important
 
@@ -103,9 +100,8 @@ public class Notification extends Fragment implements OnMapReadyCallback,Locatio
     }
 
 
-    public interface OnFragmentInteractionListener {
+    interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
     @Override
     public void onResume() {

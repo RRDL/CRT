@@ -23,18 +23,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Donation extends Fragment {
 
 
-    private ChatView mChatView;
-    private MessageList mMessageList;
+    private static ChatView mChatView;
+    private static MessageList mMessageList;
     private ArrayList<User> mUsers;
     private int myId ;
     private Bitmap myIcon ;
     private String myName ;
     private User me ;
-    private User you ;
+    private static User you ;
     private MessageSender mMessageSenderCallback;
 
 
@@ -43,11 +42,6 @@ public class Donation extends Fragment {
     public Donation() {
         // Required empty public constructor
     }
-    // TODO: Rename and change types and number of parameters
-    public static Donation newInstance() {
-        return new Donation();
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,7 +99,8 @@ public class Donation extends Fragment {
         return v;
     }
 
-    public void receiveMessage(String sendText) {
+
+    public static void receiveMessage(String sendText) {
         Message message = new Message.Builder()
                 .setUser(you)
                 .setRightMessage(false)
@@ -165,9 +160,7 @@ public class Donation extends Fragment {
     }
 
 
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    interface OnFragmentInteractionListener {
     }
 
     @Override
@@ -235,6 +228,7 @@ public class Donation extends Fragment {
         void sendMessage(String message);
 
     }
+
 
 
 }
