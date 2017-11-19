@@ -18,7 +18,7 @@ import java.net.Socket;
 import static android.content.ContentValues.TAG;
 
 public class SocketService extends Service {
-    public static final String SERVERIP = "192.168.43.221";
+    public static final String SERVERIP = "192.168.1.23";
     //public static final int SERVERPORT = 2222;
     PrintWriter out;
     BufferedReader in ;
@@ -28,6 +28,7 @@ public class SocketService extends Service {
     public SocketService() {}
     private final IBinder myBinder = new LocalBinder();
     String incomingMessage;
+    Boolean isConnected;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -74,6 +75,7 @@ public class SocketService extends Service {
         public void run() {
 
             mRun = true;
+            isConnected = false;
 
             try {
                 // Creating InetAddress object from ipNumber passed via constructor from IpGetter class.
@@ -81,6 +83,7 @@ public class SocketService extends Service {
 
                 Log.d(TAG, "Connecting...");
                 Socket socket = new Socket(serverAddress, 2222);
+
 
                 try {
                     // Create PrintWriter object for sending messages to server.
@@ -90,10 +93,10 @@ public class SocketService extends Service {
                     in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     while (mRun) {
                         incomingMessage = in.readLine();
-                        if (incomingMessage != null) {
+                        //if (incomingMessage != null) {
                             recieveMsg(incomingMessage);
                             Log.e("MSG",incomingMessage);
-                        }
+                        //}
 
                     }
 
@@ -104,11 +107,11 @@ public class SocketService extends Service {
 
                 } finally {
 
-                    out.flush();
-                    out.close();
-                    in.close();
-                    socket.close();
-                    Log.d(TAG, "Socket Closed");
+                    //out.flush();
+                    //out.close();
+                    //in.close();
+                    //socket.close();
+                    //Log.d(TAG, "Socket Closed");
                 }
 
             } catch (Exception e) {
@@ -127,6 +130,7 @@ public class SocketService extends Service {
         Intent intent = new Intent("my-event");
         // add data
         intent.putExtra("message", msg);
+        Log.e("MSG","sent to MainActivity");
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
@@ -144,5 +148,8 @@ public class SocketService extends Service {
         socket = null;
     }
 
-
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return START_STICKY;
+    }
 }

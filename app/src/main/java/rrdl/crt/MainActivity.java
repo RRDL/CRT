@@ -22,16 +22,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.util.Locale;
 
 import br.com.goncalves.pugnotification.notification.PugNotification;
 import rrdl.crt.SocketService.LocalBinder;
 
-public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Donation.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener,Donation.MessageSender {
+public class MainActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener,Notification.OnFragmentInteractionListener,Setting.OnFragmentInteractionListener,About.OnFragmentInteractionListener,CrtInfo.OnFragmentInteractionListener,Donation.MessageSender {
 
 
     FragmentManager fm ;
@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     Boolean isBound= false;
     Locale mylocale;
     Setting s;
-    //Donation donation;
+    Boolean registred = false;
+    String message;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -77,17 +78,25 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fm=getSupportFragmentManager();
         fm.beginTransaction().add(R.id.content,new BlankFragment()).commit();
-        //donation = new Donation();
+        Intent i = new Intent(this,SocketService.class);
+        bindService(i,myConnection,Context.BIND_AUTO_CREATE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        Log.e("Brodcast","Broadcast intent onCreate invoked");
+        if(savedInstanceState == null){
+        if(!registred){
+            LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
+                    new IntentFilter("my-event"));
+            Log.e("Registre","Broadcast intent  register");
+            registred = true;
+        }}
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Intent i = new Intent(this,SocketService.class);
-        bindService(i,myConnection,Context.BIND_AUTO_CREATE);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
-                new IntentFilter("my-event"));
+        Log.e("Brodcast","Broadcast intent onStart invoked");
+
     }
 
     private ServiceConnection myConnection = new ServiceConnection() {
@@ -112,12 +121,14 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         return true;
     }
 
-    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+    public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.e("Broadcast","BroadcastReceiver called");
             // Extract data included in the Intent
-            String message = intent.getStringExtra("message") + "";
-            Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
+            message = intent.getStringExtra("message");
+            Log.e("Recived : ",message+ " MainActivity.onrecieve");
+            //Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
             Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             PugNotification.with(context)
                     .load()
@@ -130,23 +141,21 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
                     .lights(Color.RED, 1, 1)
                     .simple()
                     .build();
-            try {
-                //fm.beginTransaction().replace(R.id.content, new Donation()).commitAllowingStateLoss();
+                Log.e("Notification","Created");
+               // fm.beginTransaction().replace(R.id.content,new Donation()).commitAllowingStateLoss();
                 Donation.receiveMessage(message);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-
+                Log.e("MainActivity","just call recieve method");
         }
     };
 
     @Override
     protected void onPause() {
-        super.onPause();
         SharedPreferences sharedPreferences = getSharedPreferences("lang", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("l",Language);
         editor.apply();
+        //LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+        super.onPause();
     }
 
     @Override
@@ -206,6 +215,9 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
     @Override
     public void sendMessage(String message) {
         myService.sendMessage(message);
+    }
+    interface main {
+        public void recieve(String s);
     }
 
 

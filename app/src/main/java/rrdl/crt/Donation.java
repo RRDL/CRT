@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class Donation extends Fragment {
     private User me ;
     private static User you ;
     private MessageSender mMessageSenderCallback;
+    Message message;
 
 
 
@@ -101,6 +103,8 @@ public class Donation extends Fragment {
 
 
     public static void receiveMessage(String sendText) {
+
+        Log.e("Recive call","recieve msg just called");
         Message message = new Message.Builder()
                 .setUser(you)
                 .setRightMessage(false)
@@ -110,7 +114,9 @@ public class Donation extends Fragment {
         //Set to chat view
         mChatView.send(message);
         mMessageList.add(message);
+        Log.e("MSG ","MSG added");
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -133,8 +139,10 @@ public class Donation extends Fragment {
                     .setMessageStatusType(Message.MESSAGE_STATUS_ICON)
                     .build();
             mChatView.send(message);
+            Log.e("Msg : Donation","message send method");
             //Add message list
             mMessageList.add(message);
+            Log.e("Msg : Donation","message add method");
             receiveMessage(Message.Type.PICTURE.name());
         } catch (IOException e) {
             e.printStackTrace();
@@ -146,6 +154,7 @@ public class Donation extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        getView();
         try {
             mMessageSenderCallback = (MessageSender) context;
         } catch (ClassCastException e) {
@@ -160,8 +169,6 @@ public class Donation extends Fragment {
     }
 
 
-    interface OnFragmentInteractionListener {
-    }
 
     @Override
     public void onDestroyView() {
@@ -226,8 +233,9 @@ public class Donation extends Fragment {
     }
     interface MessageSender {
         void sendMessage(String message);
-
     }
+
+
 
 
 
