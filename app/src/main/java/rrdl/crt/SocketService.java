@@ -18,7 +18,7 @@ import java.net.Socket;
 import static android.content.ContentValues.TAG;
 
 public class SocketService extends Service {
-    public static final String SERVERIP = "192.168.1.23";
+    public static final String SERVERIP = "You server IP";
     //public static final int SERVERPORT = 2222;
     PrintWriter out;
     BufferedReader in ;
