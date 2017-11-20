@@ -40,4 +40,4 @@ Contributing is very welcomed on this repository.
 we are using [a java server](https://github.com/maherzaidoune/CRTServer) Still on beta version
 [![Screenshot_2017-11-12-21-43-46.png](https://github.com/RRDL/CRT/blob/master/serveeeeeeeeeeur.png)
 
-you are al welcome to contribute in our Project
+you are all welcome to contribute in our Project
