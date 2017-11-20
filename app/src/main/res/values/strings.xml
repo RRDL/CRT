@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CRT</string>
+    <string name="app_name">Tunisian red crescent</string>
     <string name="home">Home</string>
     <string name="chat">Chat</string>
     <string name="map">Map</string>
@@ -9,7 +9,7 @@
     <!--before acting-->
     <string name="bi">Before Intervening</string>
     <string name="bi0">First step : Secure the site</string>
-    <string name="bi1">Evalutate safety conditions. and make sure that there is no supplementary hazards(trafic,fire,electric shock hazard..) Do not enter the accident site if there\'s a risk to you. guarantee the safety of the victims and other persons who are present. if the situation is too dangerous for you to intervene, Alert emergency services. create a safe perimeter around the accident site and wait safely for EMS arrival.</string>
+    <string name="bi1">Evalutate safety conditions. and make sure that there is no supplementary hazards(traffic,fire,electric shock hazard..) Do not enter the accident site if there\'s a risk to you. guarantee the safety of the victims and other persons who are present. if the situation is too dangerous for you to intervene, Alert emergency services. create a safe perimeter around the accident site and wait safely for EMS arrival.</string>
     <string name="bi2">Present yourself and explain to the victim what are you intending to do. verify that the victim is conscious and breathing. notice any alteration in consciousness or breathing.These informations would be tranfered to the EMS.</string>
     <string name="bi3">If you need help, call for the emergency services. EMS phone numbers are available on the screen. You will have to share these informations with the EMS. -Your phone number or the phone you\'re calling from -If necessary , your name -The problem\'s nature(accident , illness) -Risk factors(fire,explosions,..) -The precise location of the event -Number of persons hurt. -State of each victim. -Measures taken at the site.</string>
     <string name="bi4">Deliver first aid in a calm and well paced manner.</string>
@@ -29,7 +29,7 @@
     <string name="ch2"> Victim can\'t respond vocally but is conscious.\n Victim can\'t speak, breathe nor cough.</string>
     <string name="ch3">Intervention</string>
     <string name="ch4">Give a maximum of 5 hit on the victims back. after each hit , verify if the problem is sorted.\n If hitting the victim\'s back doesn\'t work, apply 5 abdominal compressions.</string>
-    <string name="ch5">If the problem persists, Alternate between the two methods given above.\n If the victim loses conciousness, place him gently on the floor and immidiatly alert emergency services, then apply a cardio-pulmunary re-animation procedure, starting with 30 thoracic compressions.</string>
+    <string name="ch5">If the problem persists, Alternate between the two methods given above.\n If the victim loses consciousness, place him gently on the floor and immidiatly alert emergency services, then apply a cardio-pulmunary re-animation procedure, starting with 30 thoracic compressions.</string>
     <string name="ch6">Keep applying the re-animation procedure until emergency services arrive , or until victim regains normal respiration functions.</string>
     <string name="ch7">Back-tapping procedure</string>
     <string name="ch8">Grab the victim by the side (as shown). Administer a maximum of 5 hits between the victims scapulas.</string>
@@ -66,7 +66,14 @@
     <string name="bl9">Applying compression bandage</string>
     <string name="bl10"> -The cloth used must be clean and cover all the wound -the application of the compression bandage must be done as fast as possible -The cloth used must be large enough to cover the wound , and long enough to take 2 twists around the wound. -the cloth must be tight really well to aply enough pressure. -If the bandage can\'t deliver enough pressure to stop the bleeding ,apply another one on top of it to add more pressure to the wound. -In case of failure , go back to manual pressure.</string>
 
-
-
+    <string name="setting">Setting</string>
+    <string name="about">About</string>
+    <string name="crt">Help and Donate</string>
+    <string name="exit">Exit</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="hint">Input...</string>
+    <string name="Language">Language</string>
+    <string name="description">RRDL is a specialized computer science research lab and a developement hub.\n Based in Sousse, Tunisia.</string>
+    <string name="crtDescr">The Tunisian Red Crescent is a Tunisian humanitarian organization founded during the Second World War during the period of Allied control over Tunisia but dissolved after the defeat of the Allies and the restoration of France\'s control over Tunisia. After independence, it was re-established in 1956. The Tunisian Red Crescent Society belongs to the International Movement of Red Cross and Red Crescent Societies \n The Tunisian Red Crescent Society has seven principles: humanity 2 impartiality 3 impartiality 4 independence 5 volunteerism 6 global unity 7...</string>
 
 </resources>
