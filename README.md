@@ -8,9 +8,13 @@ This app contains:
   -A Map that contains markers to important landmarks , such as near hospitals and TRC locals.
 
 Future plans :
-  - Implement a bad-word filter
+  - Implement filters on the server side app, somekind of bad words or ads filters ...
   - Augment the accuracy and the number of landmarks
+  - add frensh translation
+  - optimize service memory usage
   - Grow the First-aid library with further details and illustrations.
+  and much more
+  
 Contributing is very welcomed on this repository.
 
 "To help without asking whom" - Henry dunnant.
@@ -28,6 +32,12 @@ Contributing is very welcomed on this repository.
 
 المشاركة في هذا المشروع مرحب بها جدا 
 
-[![Screenshot_2017-11-12-21-43-46.png](https://s1.postimg.org/7ona21tf4f/Screenshot_2017-11-12-21-43-46.png)](https://postimg.org/image/6zu0i15w3v/)
-[![Screenshot_2017-11-12-21-43-57.png](https://s1.postimg.org/1of3xbxypb/Screenshot_2017-11-12-21-43-57.png)](https://postimg.org/image/5invgafwmj/)
-[![Screenshot_2017-11-12-21-44-30.png](https://s1.postimg.org/13i7p77nsv/Screenshot_2017-11-12-21-44-30.png)](https://postimg.org/image/2rrkmdxxyz/)
+[![Screenshot_2017-11-12-21-43-46.png](https://github.com/RRDL/CRT/blob/master/Screenshot_2017-11-18-21-40-19.png)
+[![Screenshot_2017-11-12-21-43-57.png](https://github.com/RRDL/CRT/blob/master/Screenshot_2017-11-18-21-42-10.png)
+[![Screenshot_2017-11-12-21-44-30.png](https://github.com/RRDL/CRT/blob/master/Screenshot_2017-11-18-21-42-24.png)
+[![Screenshot_2017-11-12-21-43-46.png](https://github.com/RRDL/CRT/blob/master/Screenshot_2017-11-12-17-08-36.png)
+
+we are using [a java server](https://github.com/maherzaidoune/CRTServer) Still on beta version
+[![Screenshot_2017-11-12-21-43-46.png](https://github.com/RRDL/CRT/blob/master/serveeeeeeeeeeur.png)
+
+you are al welcome to contribute in our Project
