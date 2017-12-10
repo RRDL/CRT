@@ -18,8 +18,8 @@ import java.net.Socket;
 import static android.content.ContentValues.TAG;
 
 public class SocketService extends Service {
-    public static final String SERVERIP = "You server IP";
-    //public static final int SERVERPORT = 2222;
+    public static final String SERVERIP = "server ip";
+    public static final int SERVERPORT = 54411;// server port
     PrintWriter out;
     BufferedReader in ;
     Socket socket;
@@ -82,7 +82,7 @@ public class SocketService extends Service {
                 InetAddress serverAddress = InetAddress.getByName(SERVERIP);
 
                 Log.d(TAG, "Connecting...");
-                Socket socket = new Socket(serverAddress, 2222);
+                Socket socket = new Socket(serverAddress, SERVERPORT);
 
 
                 try {
@@ -139,6 +139,8 @@ public class SocketService extends Service {
     public void onDestroy() {
         super.onDestroy();
         try {
+            // wen server receive this msg , listening thread for this socket will be stopped
+            sendMessage("SOCKET_KILLED");
             socket.close();
             Log.e("Socket","Socket closed");
         } catch (Exception e) {
